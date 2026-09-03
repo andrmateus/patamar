@@ -15,7 +15,7 @@ export function Layout({ children }: LayoutProps) {
       <div className="sticky top-0 z-20 h-12 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
         <div className="mx-auto flex h-full max-w-4xl items-center justify-between px-5">
           <Link to="/" className="text-sm font-semibold tracking-tight hover:text-foreground/80">
-            Calculadoras financeiras
+            Patamar
           </Link>
           <ThemeToggle tema={tema} onChange={setTema} />
         </div>
