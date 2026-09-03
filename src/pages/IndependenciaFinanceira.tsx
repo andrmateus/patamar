@@ -1,10 +1,11 @@
-import { useEffect } from "react"
 import { Simulador } from "@/components/Simulador"
+import { PAGINAS } from "@/lib/paginas"
+import { useSeo } from "@/lib/seo"
+
+const PAGINA = PAGINAS.find((pagina) => pagina.caminho === "/independencia-financeira")!
 
 export function IndependenciaFinanceira() {
-  useEffect(() => {
-    document.title = "Independência financeira · Calculadoras financeiras"
-  }, [])
+  useSeo(PAGINA)
 
   return <Simulador />
 }

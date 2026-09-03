@@ -1,26 +1,13 @@
-import { useEffect } from "react"
 import { Link } from "react-router-dom"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { PAGINAS } from "@/lib/paginas"
+import { useSeo } from "@/lib/seo"
 
-interface Calculadora {
-  titulo: string
-  descricao: string
-  rota: string
-}
-
-const CALCULADORAS: Calculadora[] = [
-  {
-    titulo: "Independência financeira",
-    descricao:
-      "Simule quando a renda passiva do seu patrimônio passa a cobrir o seu padrão de vida, mês a mês, até a independência total.",
-    rota: "/independencia-financeira",
-  },
-]
+const CALCULADORAS = PAGINAS.filter((pagina) => pagina.card)
+const PAGINA_HOME = PAGINAS.find((pagina) => pagina.caminho === "/")!
 
 export function Home() {
-  useEffect(() => {
-    document.title = "Calculadoras financeiras"
-  }, [])
+  useSeo(PAGINA_HOME)
 
   return (
     <div className="mx-auto max-w-4xl px-5 py-8">
@@ -33,7 +20,7 @@ export function Home() {
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         {CALCULADORAS.map((calc) => (
-          <Link key={calc.rota} to={calc.rota} className="block">
+          <Link key={calc.caminho} to={calc.caminho} className="block">
             <Card className="h-full transition-colors hover:bg-muted/40">
               <CardHeader>
                 <CardTitle>{calc.titulo}</CardTitle>
