@@ -1,5 +1,6 @@
 import type { ReactNode } from "react"
 import { Link } from "react-router-dom"
+import { InstalarApp } from "@/components/InstalarApp"
 import { ThemeToggle } from "@/components/ThemeToggle"
 import { useTema } from "@/lib/tema"
 
@@ -17,7 +18,10 @@ export function Layout({ children }: LayoutProps) {
           <Link to="/" className="text-sm font-semibold tracking-tight hover:text-foreground/80">
             Patamar
           </Link>
-          <ThemeToggle tema={tema} onChange={setTema} />
+          <div className="flex items-center gap-2">
+            <InstalarApp />
+            <ThemeToggle tema={tema} onChange={setTema} />
+          </div>
         </div>
       </div>
       {children}
